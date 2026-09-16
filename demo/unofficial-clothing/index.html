@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNOFFICIAL CLOTHING | Karachi Contemporary Ready-to-Wear</title>
+  <meta name="description" content="Subversive elegance meets metropolitan tailoring. Designed in Karachi, crafted for the nonconformist. Discover raw silks, 380 GSM luxury tees, and architectural trousers." />
+  
+  <!-- Preconnect Fonts & CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <!-- Path Trailing-Slash Normalizer for Multi-Demo Hosting -->
+  <script>
+    (function () {
+      var p = window.location.pathname;
+      if (p.startsWith('/demo/') && !p.endsWith('/') && !p.includes('.')) {
+        window.location.replace(p + '/' + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. Premium Announcement Bar
+       ========================================================================== -->
+  <aside class="announcement-bar" aria-label="Announcement">
+    <div class="container announcement-inner">
+      <!-- Left: Store Location & WhatsApp -->
+      <div class="announcement-meta-left">
+        <span class="announcement-location">Shop #G-36, Madni Mall, Block 14, FB Area, Karachi</span>
+        <a href="https://wa.me/923128400431" target="_blank" rel="noopener" class="studio-appointment-link">WhatsApp: 0312-8400431</a>
+      </div>
+
+      <!-- Center: Rotating Ticker -->
+      <div class="announcement-ticker-wrap">
+        <span id="announcement-ticker-text" class="announcement-ticker-text">
+          Complimentary Express Delivery Nationwide on orders above PKR 7,500
+        </span>
+      </div>
+
+      <!-- Right: Currency Selector -->
+      <div class="announcement-meta-right">
+        <div class="currency-select-wrapper">
+          <button type="button" class="currency-btn" id="currency-trigger-btn" aria-label="Select Currency">
+            <span id="current-currency-label">PKR (Rs)</span>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1L5 5L9 1"/></svg>
+          </button>
+          <div class="currency-dropdown" id="currency-dropdown">
+            <button type="button" class="currency-opt active" data-currency="PKR">PKR (Rs)</button>
+            <button type="button" class="currency-opt" data-currency="USD">USD ($)</button>
+            <button type="button" class="currency-opt" data-currency="AED">AED (د.إ)</button>
+            <button type="button" class="currency-opt" data-currency="GBP">GBP (£)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       2. Sticky Luxury Navbar
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <!-- Left: Brand Logo Wordmark -->
+      <div class="header-brand">
+        <a href="#hero" class="brand-logo-wrap" aria-label="Unofficial Clothing Home">
+          <span class="brand-logo-text">UNOFFICIAL</span>
+          <span class="brand-logo-sub">CLOTHING &bull; KARACHI</span>
+        </a>
+      </div>
+
+      <!-- Center: Primary Desktop Navigation -->
+      <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#new-arrivals" class="nav-link">New Arrivals</a></li>
+          <li><a href="#categories" class="nav-link">Men</a></li>
+          <li><a href="#editorial" class="nav-link">Women</a></li>
+          <li><a href="#categories" class="nav-link">Collections</a></li>
+          <li><a href="#store-location" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right: Action Icons + Mobile Hamburger Menu -->
+      <div class="header-actions">
+        <!-- Search Trigger -->
+        <button type="button" class="action-btn search-trigger-btn" aria-label="Open search modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Wishlist Trigger -->
+        <button type="button" class="action-btn wishlist-trigger-btn" aria-label="View saved items">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-badge wishlist-count-badge">0</span>
+        </button>
+
+        <!-- Slide-out Cart Trigger -->
+        <button type="button" class="action-btn cart-trigger-btn" aria-label="Open shopping bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="action-badge cart-count-badge">1</span>
+        </button>
+
+        <!-- Mobile Nav Toggle Hamburger -->
+        <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       3. Full-Width Cinematic Fashion Hero
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-background-wrap">
+      <img 
+        class="hero-bg-img" 
+        src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=2000&q=90" 
+        alt="Unofficial Clothing Karachi Campaign 04" 
+        fetchpriority="high" 
+      />
+      <div class="hero-overlay-gradient"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge-pill">
+          <span class="pill-dot"></span>
+          <span>Collection 04 / Karachi Metropolis</span>
+        </div>
+
+        <h1 class="hero-title">
+          UNOFFICIAL
+          <span class="title-italic">Raw Elegance</span>
+          <span class="title-sub">Structured Silhouettes</span>
+        </h1>
+
+        <p class="hero-tagline">
+          Subversive elegance meets metropolitan tailoring. Designed in Karachi, crafted for the nonconformist with custom-milled 380 GSM cottons, indigenous raw silks, and relaxed architectural drapes.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#new-arrivals" class="btn btn-light">
+            Shop Collection
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#editorial" class="btn btn-outline-light">
+            View Lookbook Story
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Metadata Bar -->
+    <div class="hero-meta-bar">
+      <div class="container hero-meta-inner">
+        <div class="hero-meta-item">
+          <span>Textile:</span>
+          <strong>380–450 GSM Custom Knits</strong>
+        </div>
+        <div class="hero-meta-item">
+          <span>Craftsmanship:</span>
+          <strong>Hand-Cut In Karachi</strong>
+        </div>
+        <div class="hero-meta-item">
+          <span>Delivery:</span>
+          <strong>TCS Express 24–48h Nationwide</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. Shop by Category Section
+       ========================================================================== -->
+  <section class="section-spacing categories-section" id="categories">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tag">Curated Edits</span>
+        <h2 class="section-title">Shop By Silhouette</h2>
+        <p class="section-subtitle">
+          Engineered for Karachi’s coastal warmth and global metropolitan wear. Structured cuts, unlined ease, and heavyweight raw textures.
+        </p>
+      </div>
+
+      <!-- 5-Card Asymmetric Category Grid -->
+      <div class="categories-grid" id="categories-grid">
+        <!-- Injected via JavaScript from CATEGORIES data -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. New Arrivals Product Grid
+       ========================================================================== -->
+  <section class="section-spacing new-arrivals-section" id="new-arrivals">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tag">Freshly Dropped</span>
+        <h2 class="section-title">New Arrivals</h2>
+        <p class="section-subtitle">
+          Limited small-batch production run. Every garment features custom hardware and hand-finished seam detailing.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="product-filters reveal-on-scroll">
+        <button type="button" class="filter-tab active" data-filter="all">All Releases</button>
+        <button type="button" class="filter-tab" data-filter="men">Menswear</button>
+        <button type="button" class="filter-tab" data-filter="women">Womenswear</button>
+        <button type="button" class="filter-tab" data-filter="coords">Co-Ord Ensembles</button>
+        <button type="button" class="filter-tab" data-filter="limited">Limited Editions</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="products-grid">
+        <!-- Rendered dynamically from PRODUCTS data -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. Large Editorial Collection / Banner Section
+       ========================================================================== -->
+  <section class="section-spacing editorial-section" id="editorial">
+    <div class="container">
+      <div class="editorial-layout">
+        <!-- Left: Asymmetric Fashion Imagery -->
+        <div class="editorial-visual-frame reveal-on-scroll">
+          <div class="editorial-main-img-wrap">
+            <img 
+              class="editorial-main-img" 
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=85" 
+              alt="Unofficial Monsoon Campaign Editorial" 
+              loading="lazy" 
+            />
+          </div>
+          <div class="editorial-accent-img-wrap">
+            <img 
+              class="editorial-accent-img" 
+              src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=85" 
+              alt="Raw Silk Seam Details" 
+              loading="lazy" 
+            />
+          </div>
+          <div class="editorial-stamp-badge">
+            <span>KARACHI<br/>ATELIER<br/>2026</span>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Narrative Content -->
+        <div class="editorial-content reveal-on-scroll delay-1">
+          <span class="editorial-chapter">Chapter IV &bull; Campaign Story</span>
+          <h2 class="editorial-headline">Monsoon In Clifton</h2>
+          
+          <blockquote class="editorial-quote">
+            “A dialogue between architectural brutalism and coastal Karachi humidity.”
+          </blockquote>
+
+          <p class="editorial-narrative">
+            Collection 04 reinterprets traditional South Asian silhouettes through deconstructed metropolitan tailoring. We sourced indigenous raw silks woven on wooden handlooms in interior Sindh, blending them with breathable high-twist combed yarns to withstand tropical sea air while holding sharp, sculptural form.
+          </p>
+
+          <div class="editorial-specs-row">
+            <div class="editorial-spec-item">
+              <strong>100%</strong>
+              <span>Sindh Raw Silk &amp; Cotton</span>
+            </div>
+            <div class="editorial-spec-item">
+              <strong>450 GSM</strong>
+              <span>Dense Loopback Fleece</span>
+            </div>
+            <div class="editorial-spec-item">
+              <strong>Limited</strong>
+              <span>50 Units Per Silhouette</span>
+            </div>
+          </div>
+
+          <div class="editorial-actions">
+            <a href="#new-arrivals" class="btn btn-light">
+              Explore The Capsule
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. Best Sellers Section
+       ========================================================================== -->
+  <section class="section-spacing bestsellers-section" id="bestsellers">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tag">Signature Staples</span>
+        <h2 class="section-title">Most Coveted Pieces</h2>
+        <p class="section-subtitle">
+          The foundational garments defined by distinct weights, architectural pleats, and consistent sellout runs across Pakistan.
+        </p>
+      </div>
+
+      <div class="products-grid" id="bestsellers-grid">
+        <!-- Rendered via JavaScript from filtered PRODUCTS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. Promotional Fashion Campaign / Studio Fittings Section
+       ========================================================================== -->
+  <section class="section-spacing campaign-promo-section" id="studio-appointments">
+    <div class="container">
+      <div class="campaign-promo-card reveal-on-scroll">
+        <!-- Visual -->
+        <div class="campaign-promo-visual">
+          <img 
+            class="campaign-promo-img" 
+            src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=85" 
+            alt="Unofficial Clothing Atelier Studio Fitting" 
+            loading="lazy" 
+          />
+          <div class="campaign-promo-badge">Federal B Area, Karachi</div>
+        </div>
+
+        <!-- Body -->
+        <div class="campaign-promo-body">
+          <span class="campaign-promo-eyebrow">Store Experience &amp; Fittings</span>
+          <h2 class="campaign-promo-title">In-Store Experience &amp; Alterations</h2>
+          <p class="campaign-promo-text">
+            Experience the drape, weight, and textile hand-feel in person. Visit our store at Shop #G-36, Madni Mall, Block 14, Federal B Area, Karachi or connect with us directly on WhatsApp for styling guidance and collection availability.
+          </p>
+
+          <div class="campaign-features-list">
+            <div class="campaign-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Complimentary in-store precision hem &amp; sleeve tailoring</span>
+            </div>
+            <div class="campaign-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Raw fabric tactile collection &amp; structured drape archive</span>
+            </div>
+            <div class="campaign-feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Dedicated fitting room for comfortable exploration</span>
+            </div>
+          </div>
+
+          <div class="campaign-promo-actions">
+            <a href="https://wa.me/923128400431?text=Hello%20Unofficial%20Clothing,%20I%20would%20like%20to%20inquire%20about%20your%20collection." target="_blank" rel="noopener" class="btn btn-primary">
+              Connect on WhatsApp
+            </a>
+            <a href="#store-location" class="link-arrow">
+              View Store Location
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. Why Shop With Us / Brand Benefits
+       ========================================================================== -->
+  <section class="section-spacing benefits-section" id="benefits">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tag">Brand Standards</span>
+        <h2 class="section-title">Why Unofficial Clothing</h2>
+        <p class="section-subtitle">
+          Setting a higher benchmark for Pakistani ready-to-wear through uncompromised textile density, reliable domestic fulfillment, and concierge client care.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <!-- Benefit 1 -->
+        <div class="benefit-card reveal-on-scroll delay-1">
+          <div class="benefit-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h3 class="benefit-title">Crafted In Karachi</h3>
+          <p class="benefit-desc">
+            Bespoke 380–450 GSM custom-knitted Pakistani combed cottons, selvedge denim, and raw slub silks tailored in small conscious batches.
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="benefit-card reveal-on-scroll delay-2">
+          <div class="benefit-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <h3 class="benefit-title">Express Dispatch</h3>
+          <p class="benefit-desc">
+            Same-day delivery across Karachi. 24–48 hour tracked delivery to Lahore, Islamabad, Faisalabad, and nationwide via verified couriers.
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="benefit-card reveal-on-scroll delay-3">
+          <div class="benefit-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+          </div>
+          <h3 class="benefit-title">COD &amp; Raast Payments</h3>
+          <p class="benefit-desc">
+            Seamless Cash on Delivery nationwide, instant bank transfer via Raast ID, and secure global Visa / Mastercard processing.
+          </p>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="benefit-card reveal-on-scroll delay-4">
+          <div class="benefit-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+          </div>
+          <h3 class="benefit-title">7-Day Size Exchanges</h3>
+          <p class="benefit-desc">
+            Enjoy complete peace of mind with our doorstep reverse courier pickup for seamless size and fit adjustments across Pakistan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. Instagram Lookbook Gallery
+       ========================================================================== -->
+  <section class="section-spacing instagram-section" id="lookbook">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-tag">Streetstyle Archive</span>
+        <h2 class="section-title">@UNOFFICIAL.PK</h2>
+        <p class="section-subtitle">
+          Captured across the architectural landscapes of Karachi — Sea View promenade, Old Clifton, and metropolitan streetscapes.
+        </p>
+      </div>
+
+      <div class="instagram-feed-grid" id="instagram-feed-grid">
+        <!-- Rendered via JavaScript from INSTAGRAM_POSTS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. Store / Location + WhatsApp VIP Concierge Section
+       ========================================================================== -->
+  <section class="section-spacing location-section" id="store-location">
+    <div class="container">
+      <div class="location-grid reveal-on-scroll">
+        <!-- Left: Artistic Karachi Map Illustration -->
+        <div class="location-map-art">
+          <svg class="map-svg-art" viewBox="0 0 600 400" fill="none" stroke="#FFFFFF" stroke-width="1">
+            <!-- Stylized street grid of Karachi -->
+            <path d="M20 50 L580 50 M20 120 L580 120 M20 190 L580 190 M20 260 L580 260 M20 330 L580 330" stroke-dasharray="4 6"/>
+            <path d="M80 20 L80 380 M180 20 L180 380 M280 20 L280 380 M380 20 L380 380 M480 20 L480 380" stroke-dasharray="4 6"/>
+            <!-- Coastline curve -->
+            <path d="M20 380 Q 200 320, 380 340 T 580 280" stroke="#C5A880" stroke-width="2"/>
+            <circle cx="380" cy="190" r="14" fill="#C5A880" fill-opacity="0.3"/>
+            <circle cx="380" cy="190" r="6" fill="#C5A880"/>
+          </svg>
+
+          <div class="location-pin-card">
+            <div class="pin-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <h3 class="pin-title">Unofficial Clothing</h3>
+            <p class="pin-address">
+              Shop #G-36, Madni Mall, Block 14,<br/>
+              Federal B Area, Karachi, Pakistan
+            </p>
+            <span class="pin-badge">Store Location</span>
+          </div>
+        </div>
+
+        <!-- Right: Studio Details & WhatsApp Concierge -->
+        <div class="location-info-panel">
+          <span class="location-info-eyebrow">Karachi Store &bull; Visit Us</span>
+          <h2 class="location-info-title">Unofficial Clothing Store</h2>
+          <p class="location-info-text">
+            Visit our retail store to explore our latest ready-to-wear drops, try on structured silhouettes in person, or pick up your orders directly.
+          </p>
+
+          <div class="location-details-list">
+            <div class="location-detail-row">
+              <div class="detail-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="detail-body">
+                <strong>Store Address</strong>
+                <span>Shop #G-36, Madni Mall, Block 14, Federal B Area, Karachi, Pakistan</span>
+              </div>
+            </div>
+
+            <div class="location-detail-row">
+              <div class="detail-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="detail-body">
+                <strong>Phone / WhatsApp</strong>
+                <span><a href="https://wa.me/923128400431" target="_blank" rel="noopener">0312-8400431</a></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Concierge Box -->
+          <div class="whatsapp-vip-box">
+            <div class="whatsapp-vip-text">
+              <h4>Need Sizing or Assistance?</h4>
+              <p>Chat directly with Unofficial Clothing on WhatsApp for real-time sizing advice, collection availability, and order updates.</p>
+            </div>
+            <a href="https://wa.me/923128400431?text=Hello%20Unofficial%20Clothing,%20I%20would%20like%20sizing%20guidance%20and%20order%20details." target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              WhatsApp: 0312-8400431
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       12. VIP Circle Newsletter
+       ========================================================================== -->
+  <section class="section-spacing newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="newsletter-inner reveal-on-scroll">
+        <span class="newsletter-tag">Exclusive Access</span>
+        <h2 class="newsletter-title">Join The Unofficial Circle</h2>
+        <p class="newsletter-desc">
+          Receive priority notification 2 hours before new drops release, private invitations to studio exhibitions in Karachi, and access to archive releases.
+        </p>
+
+        <form class="newsletter-form" id="newsletter-form">
+          <input 
+            type="email" 
+            class="newsletter-input" 
+            id="newsletter-email-input" 
+            placeholder="Enter your email address" 
+            required 
+          />
+          <button type="submit" class="newsletter-submit">
+            Subscribe &rarr;
+          </button>
+        </form>
+
+        <p class="newsletter-disclaimer">
+          By joining, you agree to receive digital dispatches from Unofficial Clothing Karachi. You may unsubscribe anytime.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       13. Detailed Luxury Footer
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Bio Col -->
+        <div class="footer-brand-col">
+          <span class="footer-logo">UNOFFICIAL</span>
+          <span class="footer-logo-sub">CLOTHING &bull; KARACHI</span>
+          <p class="footer-bio">
+            Contemporary ready-to-wear and structured streetwear born in Karachi. Crafted for the nonconformist with dense custom textiles and refined South Asian minimalism.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://wa.me/923128400431" target="_blank" rel="noopener" class="social-icon-link" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 1: Shop -->
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Shop Collections</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#new-arrivals" class="footer-nav-link">New Arrivals 2026</a></li>
+            <li><a href="#new-arrivals" class="footer-nav-link">Raw Silk Tops</a></li>
+            <li><a href="#new-arrivals" class="footer-nav-link">380 GSM Heavy Tees</a></li>
+            <li><a href="#new-arrivals" class="footer-nav-link">Tailored Pleated Pants</a></li>
+            <li><a href="#new-arrivals" class="footer-nav-link">Monochrome Co-Ords</a></li>
+            <li><a href="#bestsellers" class="footer-nav-link">Studio Archive</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Client Care -->
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Client Services</h4>
+          <ul class="footer-nav-list">
+            <li><a href="javascript:void(0)" onclick="window.openSizeGuide()" class="footer-nav-link">Size &amp; Fit Guide</a></li>
+            <li><a href="#benefits" class="footer-nav-link">Nationwide Shipping Policy</a></li>
+            <li><a href="#benefits" class="footer-nav-link">7-Day Doorstep Returns</a></li>
+            <li><a href="#store-location" class="footer-nav-link">Karachi Store Pickup</a></li>
+            <li><a href="#store-location" class="footer-nav-link">Bespoke Alterations</a></li>
+            <li><a href="https://wa.me/923128400431" target="_blank" rel="noopener" class="footer-nav-link">Track Your Order</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Studio & Company -->
+        <div class="footer-nav-col">
+          <h4 class="footer-heading">Karachi Store</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#store-location" class="footer-nav-link">Shop #G-36, Madni Mall, Karachi</a></li>
+            <li><a href="#studio-appointments" class="footer-nav-link">In-Store Fittings</a></li>
+            <li><a href="#editorial" class="footer-nav-link">Textile &amp; Craft Manifesto</a></li>
+            <li><a href="https://wa.me/923128400431" target="_blank" rel="noopener" class="footer-nav-link">WhatsApp: 0312-8400431</a></li>
+            <li><a href="tel:03128400431" class="footer-nav-link">Phone: 0312-8400431</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 Unofficial Clothing Karachi. All Rights Reserved. Designed &amp; Tailored in Sindh, Pakistan.</p>
+        
+        <div class="footer-payments-wrap">
+          <span class="payment-pill">Cash On Delivery</span>
+          <span class="payment-pill">TCS Express</span>
+          <span class="payment-pill">Raast Instant</span>
+          <span class="payment-pill">Visa / Mastercard</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Slide-Out Cart Drawer
+       ========================================================================== -->
+  <div class="drawer-backdrop" id="cart-drawer-backdrop"></div>
+  <aside class="side-drawer" id="cart-drawer" aria-label="Shopping Bag">
+    <div class="drawer-header">
+      <div class="drawer-title-wrap">
+        <h3 class="drawer-title">Shopping Bag</h3>
+        <span class="drawer-count-tag cart-count-badge">1</span>
+      </div>
+      <button type="button" class="drawer-close-btn" id="cart-close-btn" aria-label="Close bag">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <!-- Free Delivery Progress Meter -->
+    <div class="shipping-progress-box">
+      <div class="shipping-progress-text" id="shipping-meter-text">
+        Add <strong>PKR 1,650</strong> more for Complimentary Nationwide Delivery
+      </div>
+      <div class="shipping-progress-bar-bg">
+        <div class="shipping-progress-fill" id="shipping-meter-fill" style="width: 78%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items List -->
+    <div class="drawer-body" id="cart-items-list">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="drawer-footer">
+      <!-- Promo Voucher Input -->
+      <div class="cart-promo-form">
+        <input 
+          type="text" 
+          class="cart-promo-input" 
+          id="cart-promo-input" 
+          placeholder="Promo code (e.g. KARACHI10)" 
+        />
+        <button type="button" class="cart-promo-apply-btn" id="cart-promo-btn">Apply</button>
+      </div>
+
+      <!-- Price Breakdown -->
+      <div class="cart-summary-rows">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">PKR 12,500</span>
+        </div>
+        <div class="cart-summary-row" id="cart-discount-row" style="display: none; color: var(--color-sale);">
+          <span>Promo Discount</span>
+          <span id="cart-discount-amount">-PKR 0</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Estimated Delivery (Pakistan)</span>
+          <span id="cart-shipping-fee" style="color: var(--color-success); font-weight: 600;">FREE</span>
+        </div>
+        <div class="cart-summary-row total-row">
+          <span>Total</span>
+          <span id="cart-total">PKR 12,500</span>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-checkout" id="cart-checkout-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        PROCEED TO CHECKOUT &bull; PKR 12,500
+      </button>
+
+      <div class="cart-security-note">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Dispatches from Karachi Studio via TCS / Leopards Courier</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Slide-Out Wishlist Drawer
+       ========================================================================== -->
+  <div class="drawer-backdrop" id="wishlist-drawer-backdrop"></div>
+  <aside class="side-drawer" id="wishlist-drawer" aria-label="Wishlist">
+    <div class="drawer-header">
+      <div class="drawer-title-wrap">
+        <h3 class="drawer-title">Wishlist</h3>
+        <span class="drawer-count-tag wishlist-count-badge">0</span>
+      </div>
+      <button type="button" class="drawer-close-btn" id="wishlist-close-btn" aria-label="Close wishlist">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body" id="wishlist-items-list">
+      <!-- Injected via JavaScript -->
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       Quick View Modal
+       ========================================================================== -->
+  <div class="modal-backdrop" id="quickview-backdrop">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" id="quickview-close-btn" aria-label="Close quick view">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div id="quickview-content-target">
+        <!-- Rendered dynamically on click -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Live Instant Search Modal
+       ========================================================================== -->
+  <div class="modal-backdrop" id="search-modal-backdrop">
+    <div class="modal-dialog search-modal-dialog">
+      <button type="button" class="modal-close-btn" id="search-modal-close-btn" aria-label="Close search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <div class="search-input-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input 
+          type="text" 
+          class="search-input-main" 
+          id="search-input-main" 
+          placeholder="Search by silhouette, fabric, or keyword..." 
+          autocomplete="off" 
+        />
+      </div>
+
+      <div class="search-trending-bar">
+        <span class="search-trending-label">Trending:</span>
+        <button type="button" class="search-chip" data-query="Raw Silk">Raw Silk</button>
+        <button type="button" class="search-chip" data-query="380 GSM">380 GSM</button>
+        <button type="button" class="search-chip" data-query="Pleated">Pleated Trousers</button>
+        <button type="button" class="search-chip" data-query="Co-Ord">Co-Ord Set</button>
+        <button type="button" class="search-chip" data-query="Denim">Selvedge Denim</button>
+        <button type="button" class="search-chip" data-query="Linen">Flax Linen</button>
+      </div>
+
+      <div class="search-results-grid" id="search-results-grid">
+        <!-- Live search matches injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Size Guide Modal
+       ========================================================================== -->
+  <div class="modal-backdrop" id="sizeguide-backdrop">
+    <div class="modal-dialog size-guide-dialog">
+      <button type="button" class="modal-close-btn" id="sizeguide-close-btn" aria-label="Close size guide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <span class="section-tag">Karachi Tailoring Standard</span>
+      <h2 class="section-title" style="font-size: 1.75rem; margin-bottom: 0.5rem;">Sizing &amp; Measurement Guide</h2>
+      <p style="font-size: 0.875rem; color: var(--color-text-secondary);">
+        Our ready-to-wear silhouettes feature an intentional relaxed dropped shoulder cut. If you prefer a closer tailored look, we suggest sizing down.
+      </p>
+
+      <div class="size-table-wrap">
+        <table class="size-table">
+          <thead>
+            <tr>
+              <th>Size</th>
+              <th>Chest (Inches)</th>
+              <th>Shoulder</th>
+              <th>Length</th>
+              <th>Sleeve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S (Small)</td>
+              <td>42"</td>
+              <td>20.5"</td>
+              <td>28.5"</td>
+              <td>9.5"</td>
+            </tr>
+            <tr>
+              <td>M (Medium)</td>
+              <td>44"</td>
+              <td>21.5"</td>
+              <td>29.5"</td>
+              <td>10.0"</td>
+            </tr>
+            <tr>
+              <td>L (Large)</td>
+              <td>46"</td>
+              <td>22.5"</td>
+              <td>30.5"</td>
+              <td>10.5"</td>
+            </tr>
+            <tr>
+              <td>XL (X-Large)</td>
+              <td>48"</td>
+              <td>23.5"</td>
+              <td>31.5"</td>
+              <td>11.0"</td>
+            </tr>
+            <tr>
+              <td>XXL (Studio Run)</td>
+              <td>50"</td>
+              <td>24.5"</td>
+              <td>32.0"</td>
+              <td>11.5"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background-color: var(--color-surface-subtle); padding: 1rem 1.25rem; border-radius: var(--radius-xs); font-size: 0.8125rem; color: var(--color-text-secondary);">
+        <strong>Alteration Guarantee:</strong> Free sleeve or hem adjustments available at our Karachi store at Shop #G-36, Madni Mall, Block 14, Federal B Area upon showing your order confirmation.
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Toast Notification Stack
+       ========================================================================== -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- ==========================================================================
+       Floating WhatsApp VIP Concierge Pill
+       ========================================================================== -->
+  <a 
+    href="https://wa.me/923128400431?text=Hello%20Unofficial%20Clothing%20Karachi,%20I%20would%20like%20sizing%20guidance." 
+    target="_blank" 
+    rel="noopener" 
+    class="floating-whatsapp-trigger" 
+    aria-label="Chat on WhatsApp with Unofficial Clothing"
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.05 20.15C10.57 20.15 9.12 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.05 20.15ZM16.57 14.41C16.32 14.28 15.1 13.68 14.87 13.6C14.65 13.51 14.48 13.47 14.32 13.72C14.15 13.97 13.68 14.52 13.54 14.68C13.4 14.85 13.26 14.87 13.01 14.74C12.76 14.62 11.96 14.35 11.01 13.51C10.27 12.85 9.77 12.04 9.63 11.79C9.49 11.54 9.61 11.41 9.74 11.28C9.85 11.17 9.99 10.99 10.12 10.84C10.24 10.69 10.28 10.59 10.36 10.42C10.45 10.25 10.41 10.11 10.34 9.99C10.28 9.86 9.79 8.65 9.58 8.16C9.38 7.67 9.18 7.74 9.02 7.73C8.88 7.73 8.71 7.72 8.54 7.72C8.37 7.72 8.1 7.78 7.87 8.03C7.64 8.28 7 8.88 7 10.1C7 11.32 7.89 12.49 8.01 12.66C8.13 12.83 9.76 15.34 12.26 16.42C12.85 16.68 13.31 16.83 13.67 16.95C14.27 17.14 14.81 17.11 15.24 17.05C15.72 16.98 16.72 16.44 16.93 15.86C17.14 15.27 17.14 14.77 17.07 14.68C17.01 14.58 16.82 14.53 16.57 14.41Z"/>
+    </svg>
+    <span>WhatsApp: 0312-8400431</span>
+  </a>
+
+  <!-- JavaScript Modules -->
+  <script src="js/products.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

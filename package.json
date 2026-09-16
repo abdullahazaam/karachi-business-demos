@@ -1,0 +1,13 @@
+{
+  "name": "karachi-business-demos",
+  "version": "1.0.0",
+  "description": "Multi-client business and e-commerce demos for Karachi fashion and retail brands.",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js",
+    "serve": "node serve.js"
+  },
+  "keywords": ["karachi", "fashion", "ecommerce", "demo"],
+  "author": "",
+  "license": "ISC"
+}

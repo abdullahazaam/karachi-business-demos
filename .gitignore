@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Local Environment
+.env
+.env.local
+.env.*.local
+
+# Temporary files & logs
+*.log
+chrome-verify-profile/
+chrome-cdp-*/
+.tempmediaStorage/
+screen1440.png
+screenshots/
+
+# Test & scratch scripts
+audit_console.js
+capture.js
+capture_screenshots.ps1
+check_offsets.js
+test_routes.js
+verify_final.js
+
+# OS metadata
+.DS_Store
+Thumbs.db

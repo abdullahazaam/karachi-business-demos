@@ -1,0 +1,21 @@
+﻿{
+  " cleanUrls\: true,
+ \redirects\: [
+ {
+ \source\: \/\,
+ \destination\: \/demo/unofficial-clothing/\,
+ \permanent\: false
+ },
+ {
+ \source\: \/demo/:client\,
+ \destination\: \/demo/:client/\,
+ \permanent\: true
+ }
+ ],
+ \rewrites\: [
+ {
+ \source\: \/demo/:client/\,
+ \destination\: \/demo/:client/index.html\
+ }
+ ]
+}
