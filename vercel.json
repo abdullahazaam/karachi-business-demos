@@ -1,14 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/demo/unofficial-clothing",
-      "permanent": false
-    }
-  ],
   "rewrites": [
+    {
+      "source": "/demo/unofficial-clothing",
+      "destination": "/demo/unofficial-clothing/index.html"
+    },
+    {
+      "source": "/demo/unofficial-clothing/",
+      "destination": "/demo/unofficial-clothing/index.html"
+    },
     {
       "source": "/demo/:client",
       "destination": "/demo/:client/index.html"
@@ -16,14 +16,6 @@
     {
       "source": "/demo/:client/",
       "destination": "/demo/:client/index.html"
-    },
-    {
-      "source": "/demo/css/:path*",
-      "destination": "/demo/unofficial-clothing/css/:path*"
-    },
-    {
-      "source": "/demo/js/:path*",
-      "destination": "/demo/unofficial-clothing/js/:path*"
     }
   ]
 }

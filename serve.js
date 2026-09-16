@@ -30,13 +30,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Relative asset rewrite for /demo/css and /demo/js when accessed from /demo/:client
-  if (reqPath.startsWith('/demo/css/')) {
-    reqPath = '/demo/unofficial-clothing' + reqPath.substring(5);
-  } else if (reqPath.startsWith('/demo/js/')) {
-    reqPath = '/demo/unofficial-clothing' + reqPath.substring(5);
-  }
-
   // Generic /demo/:client or /demo/:client/ -> serve demo/:client/index.html
   const clientMatch = reqPath.match(/^\/demo\/([^\/\.]+)\/?$/);
   if (clientMatch) {
