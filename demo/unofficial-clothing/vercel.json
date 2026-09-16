@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/demo/unofficial-clothing",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/demo/unofficial-clothing/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/demo/css/:path*",
+      "destination": "/css/:path*"
+    },
+    {
+      "source": "/demo/js/:path*",
+      "destination": "/js/:path*"
+    }
+  ]
+}

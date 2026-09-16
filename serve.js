@@ -25,24 +25,22 @@ const server = http.createServer((req, res) => {
 
   // Root redirect
   if (reqPath === '/') {
-    res.writeHead(302, { 'Location': '/demo/unofficial-clothing/' });
+    res.writeHead(307, { 'Location': '/demo/unofficial-clothing' });
     res.end();
     return;
   }
 
-  // Exact /demo/unofficial-clothing redirect to trailing slash
-  if (reqPath === '/demo/unofficial-clothing') {
-    res.writeHead(301, { 'Location': '/demo/unofficial-clothing/' });
-    res.end();
-    return;
+  // Relative asset rewrite for /demo/css and /demo/js when accessed from /demo/:client
+  if (reqPath.startsWith('/demo/css/')) {
+    reqPath = '/demo/unofficial-clothing' + reqPath.substring(5);
+  } else if (reqPath.startsWith('/demo/js/')) {
+    reqPath = '/demo/unofficial-clothing' + reqPath.substring(5);
   }
 
-  // Generic /demo/:client without trailing slash -> redirect to with trailing slash
-  const demoMatch = reqPath.match(/^\/demo\/([^\/]+)$/);
-  if (demoMatch) {
-    res.writeHead(301, { 'Location': `/demo/${demoMatch[1]}/` });
-    res.end();
-    return;
+  // Generic /demo/:client or /demo/:client/ -> serve demo/:client/index.html
+  const clientMatch = reqPath.match(/^\/demo\/([^\/\.]+)\/?$/);
+  if (clientMatch) {
+    reqPath = `/demo/${clientMatch[1]}/index.html`;
   }
 
   // Directory handling with trailing slash -> index.html

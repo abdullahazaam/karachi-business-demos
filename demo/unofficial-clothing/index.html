@@ -14,16 +14,6 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/components.css" />
-
-  <!-- Path Trailing-Slash Normalizer for Multi-Demo Hosting -->
-  <script>
-    (function () {
-      var p = window.location.pathname;
-      if (p.startsWith('/demo/') && !p.endsWith('/') && !p.includes('.')) {
-        window.location.replace(p + '/' + window.location.search + window.location.hash);
-      }
-    })();
-  </script>
 </head>
 <body>
 
